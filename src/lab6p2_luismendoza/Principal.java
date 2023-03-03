@@ -5,7 +5,10 @@
 package lab6p2_luismendoza;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -30,7 +33,18 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_oyente = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtree_PlayListOyentes = new javax.swing.JTree();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jd_artista = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jtree_artista = new javax.swing.JTree();
+        jb_crearAlbum = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jd_signUpUser = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -60,26 +74,92 @@ public class Principal extends javax.swing.JFrame {
         jt_user = new javax.swing.JTextField();
         jp_password = new javax.swing.JPasswordField();
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Listas");
+        jtree_PlayListOyentes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jtree_PlayListOyentes);
+
+        jList1.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jList1);
+
+        jButton2.setText("Buscar Canciones");
+
+        jButton3.setText("Crear PlayList");
+
+        jButton4.setText("Buscar PlayList");
+
         javax.swing.GroupLayout jd_oyenteLayout = new javax.swing.GroupLayout(jd_oyente.getContentPane());
         jd_oyente.getContentPane().setLayout(jd_oyenteLayout);
         jd_oyenteLayout.setHorizontalGroup(
             jd_oyenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(jd_oyenteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(162, 162, 162))
+            .addGroup(jd_oyenteLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         jd_oyenteLayout.setVerticalGroup(
             jd_oyenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_oyenteLayout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addGroup(jd_oyenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addGap(39, 39, 39)
+                .addGroup(jd_oyenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Lanzamientos");
+        jtree_artista.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jtree_artista);
+
+        jb_crearAlbum.setText("Crear Album");
+        jb_crearAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearAlbumMouseClicked(evt);
+            }
+        });
+
+        jButton6.setText("Crear Single");
 
         javax.swing.GroupLayout jd_artistaLayout = new javax.swing.GroupLayout(jd_artista.getContentPane());
         jd_artista.getContentPane().setLayout(jd_artistaLayout);
         jd_artistaLayout.setHorizontalGroup(
             jd_artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_artistaLayout.createSequentialGroup()
+                .addGroup(jd_artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_artistaLayout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jb_crearAlbum)
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton6))
+                    .addGroup(jd_artistaLayout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
         jd_artistaLayout.setVerticalGroup(
             jd_artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_artistaLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addGroup(jd_artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_crearAlbum)
+                    .addComponent(jButton6))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         jLabel4.setText("Username");
@@ -334,18 +414,42 @@ public class Principal extends javax.swing.JFrame {
             }
 
             if (currentUser instanceof Artista) {
-                
+
                 JOptionPane.showMessageDialog(this, "Bienvenido " + currentUser.getUsername());
-                
+
                 jd_artista.setModal(true);
                 jd_artista.pack();
                 jd_artista.setLocationRelativeTo(this);
                 jd_artista.setVisible(true);
 
+                DefaultTreeModel modeloArbol
+                        = (DefaultTreeModel) jtree_artista.getModel();
+                DefaultMutableTreeNode raiz
+                        = (DefaultMutableTreeNode) modeloArbol.getRoot();
+                //obtener la persona a guardar
+
+                int centinela = -1;
+                for (int i = 0; i < raiz.getChildCount(); i++) {
+                    if (raiz.getChildAt(i).toString().
+                            equals(((Artista)currentUser).getLanzamientos())) {
+                        DefaultMutableTreeNode p1 = new DefaultMutableTreeNode(currentUser);
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p1);
+                        centinela = 1;
+                    } //fin if
+                } //fin for  
+
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n1 = new DefaultMutableTreeNode(((Artista)currentUser).getLanzamientos());
+                    DefaultMutableTreeNode p1 = new DefaultMutableTreeNode(currentUser);
+                    n1.add(p1);
+                    raiz.add(n1);
+                }  // fin if          
+                modeloArbol.reload();
+
             } else if (currentUser instanceof Oyente) {
-                
+
                 JOptionPane.showMessageDialog(this, "Bienvenido " + currentUser.getUsername());
-                
+
                 jd_oyente.setModal(true);
                 jd_oyente.pack();
                 jd_oyente.setLocationRelativeTo(this);
@@ -357,15 +461,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_SignUpUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SignUpUserMouseClicked
         // TODO add your handling code here:
-        
+
         jd_signUpUser.setModal(true);
         jd_signUpUser.pack();
         jd_signUpUser.setLocationRelativeTo(this);
         jd_signUpUser.setVisible(true);
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jb_SignUpUserMouseClicked
 
     private void jb_SignUpArtistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SignUpArtistMouseClicked
@@ -374,18 +476,18 @@ public class Principal extends javax.swing.JFrame {
         jd_signUpArtist.pack();
         jd_signUpArtist.setLocationRelativeTo(this);
         jd_signUpArtist.setVisible(true);
-        
+
     }//GEN-LAST:event_jb_SignUpArtistMouseClicked
 
     private void jb_guardarOyenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarOyenteMouseClicked
         // TODO add your handling code here:
         String user = jt_oyenteUser.getText();
-        String password= jt_oyentePass.getText();
+        String password = jt_oyentePass.getText();
         int edad = Integer.parseInt(jt_oyenteEdad.getText());
-        
-        Oyente oyente = new Oyente(user,password,edad);
+
+        Oyente oyente = new Oyente(user, password, edad);
         users.add(oyente);
-        
+
         JOptionPane.showMessageDialog(jd_signUpUser, "Se ha creado con éxito");
         System.out.println(users);
     }//GEN-LAST:event_jb_guardarOyenteMouseClicked
@@ -394,16 +496,26 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         String name = jt_nameSignUpArtist.getText();
         String user = jt_usernameSignUpArtist.getText();
-        String password= jt_passwordSignUpArtist.getText();
+        String password = jt_passwordSignUpArtist.getText();
         int edad = Integer.parseInt(jt_edadSignUpArtist.getText());
-        
-        Artista artista = new Artista(name,user,password,edad);
+
+        Artista artista = new Artista(name, user, password, edad);
         users.add(artista);
         System.out.println(users);
-        
+
         JOptionPane.showMessageDialog(jd_signUpArtist, "Se guardo con éxito");
         
+        adminUsuarios ap = new adminUsuarios("./users.cbm");
+            ap.setUsuarios(users);
+            ap.escribirArchivo();
+
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jb_crearAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearAlbumMouseClicked
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_jb_crearAlbumMouseClicked
 
     /**
      * @param args the command line arguments
@@ -442,6 +554,10 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -454,9 +570,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton jb_LogIn;
     private javax.swing.JButton jb_SignUpArtist;
     private javax.swing.JButton jb_SignUpUser;
+    private javax.swing.JButton jb_crearAlbum;
     private javax.swing.JButton jb_guardarOyente;
     private javax.swing.JDialog jd_artista;
     private javax.swing.JDialog jd_oyente;
@@ -471,9 +592,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jt_passwordSignUpArtist;
     private javax.swing.JTextField jt_user;
     private javax.swing.JTextField jt_usernameSignUpArtist;
+    private javax.swing.JTree jtree_PlayListOyentes;
+    private javax.swing.JTree jtree_artista;
     // End of variables declaration//GEN-END:variables
 
     Usuario currentUser;
+    DefaultMutableTreeNode nodo_seleccionado;
     ArrayList<Usuario> users = new ArrayList();
 
 }
